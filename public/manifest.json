@@ -1,10 +1,19 @@
 {
   "manifest_version": 3,
-  "name": "My Chrome Extension",
-  "version": "1.0.0",
-  "description": "A simple Chrome extension built with Vue and Tailwind",
+  "name": "Org Messages",
+  "version": "1.0",
+  "description": "Displays organization-wide messages from admin to users",
+  "permissions": ["storage", "alarms"],
+  "background": {
+    "service_worker": "assets/background.js"
+  },
   "action": {
     "default_popup": "index.html"
   },
-  "permissions": []
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "32": "assets/icons/icon32.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  }
 }
