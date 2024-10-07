@@ -1,5 +1,5 @@
 <template>
-  <ul class="messages">
+  <ul class="w-full grid grid-cols-1 gap-2">
     <MessageItem
       v-for="message in messages"
       :key="message.id"

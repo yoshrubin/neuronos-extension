@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 bg-gray-100 min-h-screen">
+  <div class="p-4 bg-gray-100 min-h-screen min-w-max">
     <h1 class="text-2xl font-bold mb-4 text-blue-600">Organization Messages</h1>
     <Messages
       :messages="messages"

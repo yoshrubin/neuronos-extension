@@ -1,7 +1,9 @@
 <template>
   <li class="mb-4 p-3 bg-white rounded shadow">
-    <div class="flex justify-between items-center">
-      <span :class="{ 'font-bold': !message.read }">{{ message.content }}</span>
+    <div class="flex justify-between items-center gap-2">
+      <span :class="[{ 'font-bold': !message.read }, 'truncate']">{{
+        message.content
+      }}</span>
       <button
         @click="$emit('markAsRead', message.id)"
         class="text-blue-500 hover:text-blue-700"
@@ -11,7 +13,7 @@
     </div>
     <div class="text-sm text-gray-500 mt-1">
       Priority: {{ message.priority }} |
-      {{ new Date(message.timestamp).toLocaleString() }}
+      {{ formatDate(message.timestamp) }}
     </div>
   </li>
 </template>
@@ -24,4 +26,15 @@ defineProps<{
 }>();
 
 defineEmits(["markAsRead"]);
+
+function formatDate = (timestamp: number) => {
+  const date = new Date(timestamp);
+  return date.toLocaleString(undefined, {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+};
 </script>
