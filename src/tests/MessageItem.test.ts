@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
 import MessageItem from '../components/MessageItem.vue'
+import { Priority } from '@/types'
 
 describe('MessageItem', () => {
   it('renders properly', () => {
@@ -10,7 +11,7 @@ describe('MessageItem', () => {
           id: '1',
           content: 'Test message',
           timestamp: new Date(),
-          priority: 'low',
+          priority: Priority.LOW,
           read: false,
         },
       },
@@ -25,7 +26,7 @@ describe('MessageItem', () => {
           id: '1',
           content: 'Test message',
           timestamp: new Date(),
-          priority: 'low',
+          priority: Priority.LOW,
           read: false,
         },
       },

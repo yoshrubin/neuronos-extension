@@ -1,12 +1,15 @@
 <template>
-    <ul class="w-full grid grid-cols-1 gap-2">
-        <MessageItem
-            v-for="message in messages"
-            :key="message.id"
-            :message="message"
-            @mark-as-read="$emit('markAsRead', $event)"
-        />
-    </ul>
+    <div v-if="messages?.length === 0">No messages</div>
+    <div v-else>
+        <ul class="w-full grid grid-cols-1 gap-2">
+            <MessageItem
+                v-for="message in messages"
+                :key="message.id"
+                :message="message"
+                @mark-as-read="$emit('markAsRead', $event)"
+            />
+        </ul>
+    </div>
 </template>
 
 <script setup lang="ts">
