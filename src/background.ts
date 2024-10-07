@@ -1,5 +1,5 @@
 import { getMockMessages } from "./mockData";
-import { MockMessagesResult } from "./types/types";
+import { MockMessagesResult } from "./types";
 
 const ALARM_NAME = "checkMessages";
 
