@@ -1,17 +1,21 @@
 <template>
-  <ul v-else>
-    <MessageItem
-      v-for="message in messages"
-      :key="message.id"
-      :message="message"
-    />
-  </ul>
+    <ul class="w-full grid grid-cols-1 gap-2">
+        <MessageItem
+            v-for="message in messages"
+            :key="message.id"
+            :message="message"
+            @mark-as-read="$emit('markAsRead', $event)"
+        />
+    </ul>
 </template>
 
 <script setup lang="ts">
-import { Message } from "@/types";
+import MessageItem from './MessageItem.vue'
+import type { Message } from '@/types'
 
 defineProps<{
-  messages: Message[];
-}>();
+    messages: Message[]
+}>()
+
+defineEmits(['markAsRead'])
 </script>
