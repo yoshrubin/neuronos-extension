@@ -3,8 +3,12 @@ import { MockMessagesResult } from "./types/types";
 
 const ALARM_NAME = "checkMessages";
 
-// Create an alarm that fires every 5 minutes
-chrome.alarms.create(ALARM_NAME, { periodInMinutes: 5 });
+async function checkAlarmState() {
+  const alarm = await chrome.alarms.get(ALARM_NAME);
+  if (!alarm) {
+    chrome.alarms.create(ALARM_NAME, { periodInMinutes: 5 });
+  }
+}
 
 // Listen for the alarm
 chrome.alarms.onAlarm.addListener((alarm) => {
@@ -32,6 +36,8 @@ function updateBadge() {
     }
   });
 }
+
+checkAlarmState();
 
 // Initial check for messages
 checkForNewMessages();
